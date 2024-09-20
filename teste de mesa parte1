@@ -1,0 +1,62 @@
+EXERCÍCIO 1
+using System;
+
+int a = 10;
+Console.WriteLine("A= {0}", a);
+int b = 20;
+Console.WriteLine("B={0}", b);
+int c = (a+b)/2;
+Console.WriteLine("C= {0}", c);
+c= c-40;
+int[] numeros = new int [6];
+numeros[3] = a + b + c;
+Console.WriteLine("Valores do vetor:");
+for (int i = 0; i < numeros.Length; i++)
+{ 
+    Console.WriteLine("Numeros [{0}] = {1}", i, numeros[i]);
+}
+Console.WriteLine("C= {0}", c);
+
+
+
+
+EXERCÍCIO 2 
+using System;
+
+int a = 2;
+Console.WriteLine("A= {0}", a);
+int[] v = new int[6];
+while (a < 6)
+{ 
+    v[a] = 10 * a;
+    a += 1;
+}
+Console.WriteLine("Valores do vetor:");
+for (int i = 0; i < v.Length; i++)
+{ 
+    Console.WriteLine("v[{0}] = {1}", i, v[i]);
+}
+
+
+EXERCÍCIO 3 
+using System;
+using System.Configuration.Assemblies;
+
+int a= 7; 
+Console.WriteLine("A={0}",a);
+int b= a - 6;
+Console.WriteLine("B={0}",b);
+int[] v = new int[6];
+while (b < a)
+{
+    v[b] = b + a;
+    b += 2;
+}
+Console.WriteLine("Valores do vetor");
+for (int i= 0; i < v.Length; i++)
+{
+    Console.WriteLine("v[0] = {1}", i, v[i]);
+}
+    
+
+
