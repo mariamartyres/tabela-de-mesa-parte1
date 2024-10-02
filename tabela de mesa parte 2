@@ -1,0 +1,299 @@
+PROBLEMA 1
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace teste_de_mesa2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Digite o valor atual: ");
+            decimal valor_atual = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Digite a taxa de juros: ");
+            decimal taxa_juros = Convert.ToDecimal(Console.ReadLine()) / 100;
+            Console.WriteLine("Informe o período em meses: ");
+            int meses = Convert.ToInt32(Console.ReadLine());
+            decimal valor_futuro = valor_atual * (decimal)Math.Pow((double)(1 + taxa_juros), meses);
+            Decimal rendimento = valor_futuro - valor_atual;
+            Console.WriteLine("\n Resultados: ");
+            Console.WriteLine("Valor atual: " + valor_atual.ToString("N2"));
+            Console.WriteLine("Período em meses: " + meses);
+            Console.WriteLine("Taxa de juros: " + (taxa_juros * 100).ToString("N2"));
+            Console.WriteLine("Valor futuro: " + valor_futuro.ToString("N2"));
+            Console.WriteLine("Rendimento: " + rendimento.ToString("N2"));
+            Console.ReadLine();
+        }
+    }
+    
+}
+
+
+PROBLEMA 2
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace teste_de_mesa2
+{
+            namespace ConsoleApp2
+   {
+         internal class Program
+         {
+            static void Main(string[] args)
+            {
+                decimal valorPresente = 7210.35m;
+                decimal taxaJuros = 1.25m / 100;
+                int periodoMes = 6;
+                decimal periodoAno = periodoMes / 12.0m;
+
+                Console.WriteLine("VALOR PRESENTE: " + valorPresente.ToString("N2"));
+                Console.WriteLine("TAXA DE JUROS: " + (taxaJuros * 100).ToString("N2") + "%");
+                Console.WriteLine("PERÍODO (mês): " + periodoMes);
+                Console.WriteLine("PERÍODO EM ANO: " + periodoAno.ToString("N1"));
+                Console.WriteLine("\nRendimentos Mensais:");
+
+                for (int mes = 1; mes <= periodoMes; mes++)
+                {
+                    decimal valorFuturo = valorPresente * (decimal)Math.Pow((double)(1 + taxaJuros), mes);
+                    Console.WriteLine($"Mês {mes}: R$ {valorFuturo.ToString("N2")}");
+                }
+
+                Console.ReadLine();
+            }
+         }
+
+
+     
+     PROBLEMA 3
+     using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace teste_de_mesa2
+{
+    internal class Program
+    {
+        
+            public class Rendimento
+        {
+            public float taxa;
+            public float valorP;
+            public int periodo;
+
+            public Rendimento(float taxa, float valorP, int periodo)
+            {
+                this.taxa = taxa / 100;
+                this.valorP = valorP;
+                this.periodo = periodo;
+            }
+
+            public float CalcularRendimento()
+            {
+
+                float rendimento = valorP * (float)Math.Pow(1 + taxa, periodo);
+                return rendimento;
+            }
+
+            public void Retorno()
+            {
+                float resultado = CalcularRendimento();
+                Console.WriteLine("Seu rendimento em {0} meses foi de R$ {1:F2}", periodo, resultado);
+            }
+        }
+
+        public class Executar
+        {
+            public static void Main()
+            {
+                Console.WriteLine("-------------------- BANCO --------------------");
+                Console.WriteLine("Digite o valor presente: ");
+                float valorP = float.Parse(Console.ReadLine());
+                Console.WriteLine("Digite a taxa: ");
+                float taxa = float.Parse(Console.ReadLine());
+                Console.WriteLine("Digite o período: ");
+                int periodo = int.Parse(Console.ReadLine());
+                Rendimento pessoa1 = new Rendimento(taxa, valorP, periodo);
+                pessoa1.Retorno();
+                Console.ReadLine();
+            }
+        }
+        }
+    }
+     }
+}
+
+
+PROBLEMA 4
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace teste_de_mesa2
+{
+            namespace ConsoleApp3
+    {
+        internal class Program
+        {
+            static void Main(string[] args)
+            {
+                Console.Write("Digite o valor presente: R$ ");
+                decimal valorPresente = Convert.ToDecimal(Console.ReadLine());
+
+                Console.Write("Digite a taxa de juros (em %): ");
+                decimal taxaJuros = Convert.ToDecimal(Console.ReadLine()) / 100;
+
+                Console.Write("Digite o período em meses: ");
+                int periodoMeses = Convert.ToInt32(Console.ReadLine());
+
+                decimal valorAcumulado = valorPresente;
+
+                Console.Write("Digite o valor do resgate: R$ ");
+                decimal valorResgate = Convert.ToDecimal(Console.ReadLine());
+
+                Console.WriteLine("\nResultados Mensais:");
+
+                for (int mes = 1; mes <= periodoMeses; mes++)
+                {
+                    valorAcumulado *= (1 + taxaJuros);
+                    decimal rendimento = valorAcumulado - valorPresente;
+
+                    Console.WriteLine($"Mês {mes}:");
+                    Console.WriteLine($"  Valor Acumulado: R$ {valorAcumulado.ToString("N2")}");
+                    Console.WriteLine($"  Rendimento: R$ {rendimento.ToString("N2")}");
+
+                    if (mes == periodoMeses)
+                    {
+                        decimal saldoPosResgate = valorAcumulado - valorResgate;
+                        Console.WriteLine($"  Saldo Pós Resgate: R$ {saldoPosResgate.ToString("N2")}");
+                    }
+                }
+
+                Console.ReadLine();
+            }
+        }
+
+    }
+}
+
+
+PROBLEMA 5
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace teste_de_mesa2
+{
+    internal class Program
+    {
+       
+            public class Rendimento
+        {
+            public float taxa;
+            public float valorP;
+            public int periodo;
+
+            public Rendimento(float taxa, float valorP, int periodo)
+            {
+                this.taxa = taxa / 100;
+                this.valorP = valorP;
+                this.periodo = periodo;
+            }
+
+            public float CalcularRendimento()
+            {
+                float rendimento = valorP * (float)Math.Pow(1 + taxa, periodo);
+                return rendimento;
+            }
+
+            public void Retorno()
+            {
+                float resultado = CalcularRendimento();
+                Console.WriteLine("Seu rendimento em {0} meses foi de R$ {1:F2}", periodo, resultado);
+            }
+        }
+
+        public class Emprestimo
+        {
+            public float taxa;
+            public float valorF;
+            public int periodo;
+
+            public Emprestimo(float taxa, float valorF, int periodo)
+            {
+                this.taxa = taxa / 100;
+                this.valorF = valorF;
+                this.periodo = periodo;
+            }
+
+            public float CalcularEmprestimo()
+            {
+                float emprestimo = valorF / (float)Math.Pow(1 + taxa, periodo);
+                return emprestimo;
+            }
+
+            public void Retorno2()
+            {
+                float resultado = CalcularEmprestimo();
+                Console.WriteLine("Seu valor de empréstimo será de: {0:F2}", resultado);
+            }
+        }
+
+        public class Executar
+        {
+            public static void Main()
+            {
+                Console.WriteLine("-------------------- BANCO --------------------");
+                Console.WriteLine("Para rendimento digite 1.\n Para empréstimo digite 2: ");
+                int opcao = int.Parse(Console.ReadLine());
+                if (opcao == 1)
+                {
+                    Console.WriteLine("Digite o valor presente: ");
+                    float valorP = float.Parse(Console.ReadLine());
+                    Console.WriteLine("Digite a taxa: ");
+                    float taxa = float.Parse(Console.ReadLine());
+                    Console.WriteLine("Digite o período: ");
+                    int periodo = int.Parse(Console.ReadLine());
+
+                    Rendimento pessoa1 = new Rendimento(taxa, valorP, periodo);
+                    pessoa1.Retorno();
+                }
+                else if (opcao == 2)
+                {
+                    Console.WriteLine("Digite o valor do empréstimo: ");
+                    float valorF = float.Parse(Console.ReadLine());
+                    Console.WriteLine("Digite a taxa do empréstimo: ");
+                    float taxaEmprestimo = float.Parse(Console.ReadLine());
+                    Console.WriteLine("Digite o período do empréstimo: ");
+                    int periodoEmprestimo = int.Parse(Console.ReadLine());
+
+                    Emprestimo emprestimo = new Emprestimo(taxaEmprestimo, valorF, periodoEmprestimo);
+                    emprestimo.Retorno2();
+                }
+
+                else
+                {
+                    Console.WriteLine("Opção inválida! Tente novamente.");
+                    Console.ReadLine();
+
+                }
+
+
+
+
+            }
+        }
+    }
+    }
+
